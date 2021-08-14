@@ -1,0 +1,154 @@
+{
+    "songs": [
+        {
+            "title": "Africa",
+            "artist": "Toto",
+            "source": "lyrics/africa.txt"
+        },
+        {
+            "title": "September",
+            "artist": "Earth, Wind, and Fire",
+            "source": "lyrics/september.txt"
+        },
+        {
+            "title": "Wake Me Up Before You Go-Go",
+            "artist": "Wham!",
+            "source": "lyrics/gogo.txt"
+        },
+        {
+            "title": "I'm Still Standing",
+            "artist": "Elton John",
+            "source": "lyrics/imstillstanding.txt"
+        },
+        {
+            "title": "Never Gonna Give You Up",
+            "artist": "Rick Astley",
+            "source": "lyrics/rickroll.txt"
+        },
+        {
+            "title": "Do It Again",
+            "artist": "Steely Dan",
+            "source": "lyrics/doitagain.txt"
+        },
+        {
+            "title": "The Chain",
+            "artist": "Fleetwood Mac",
+            "source": "lyrics/thechain.txt"
+        },
+        {
+            "title": "Invisible Touch",
+            "artist": "Genesis",
+            "source": "lyrics/invisible.txt"
+        },
+        {
+            "title": "Country Roads",
+            "artist": "John Denver",
+            "source": "lyrics/countryroads.txt"
+        },
+        {
+            "title": "Owner of a Lonely Heart",
+            "artist": "Yes",
+            "source": "lyrics/owner.txt"
+        },
+        {
+            "title": "Carry On Wayward Son",
+            "artist": "Kansas",
+            "source": "lyrics/waywardson.txt"
+        },
+        {
+            "title": "Self Control",
+            "artist": "Laura Branigan",
+            "source": "lyrics/selfcontrol.txt"
+        },
+        {
+            "title": "Down Under",
+            "artist": "Men at Work",
+            "source": "lyrics/down.txt"
+        },
+        {
+            "title": "Carnival",
+            "artist": "Natalie Merchant",
+            "source": "lyrics/carnival.txt"
+        },
+        {
+            "title": "Love Song",
+            "artist": "Sara Bareilles",
+            "source": "lyrics/lovesong.txt"
+        },
+        {
+            "title": "Wind of Change",
+            "artist": "Scorpions",
+            "source": "lyrics/change.txt"
+        },
+        {
+            "title": "Sound of Silence",
+            "artist": "Simon and Garfunkel",
+            "source": "lyrics/silence.txt"
+        },
+        {
+            "title": "You Can Call Me Al",
+            "artist": "Paul Simon",
+            "source": "lyrics/al.txt"
+        },
+        {
+            "title": "Take It Easy",
+            "artist": "Eagles",
+            "source": "lyrics/take.txt"
+        },
+        {
+            "title": "Message in a Bottle",
+            "artist": "Police",
+            "source": "lyrics/message.txt"
+        },
+        {
+            "title": "Give Me One Reason",
+            "artist": "Tracy Chapman",
+            "source": "lyrics/onereason.txt"
+        },
+        {
+            "title": "Sunglasses at Night",
+            "artist": "Corey Hart",
+            "source": "lyrics/sunglasses.txt"
+        },
+        {
+            "title": "In the Air Tonight",
+            "artist": "Phil Collins",
+            "source": "lyrics/intheair.txt"
+        },
+        {
+            "title": "Take On Me",
+            "artist": "a-ha",
+            "source": "lyrics/takeonme.txt"
+        },
+        {
+            "title": "All-Star",
+            "artist": "Smash Mouth",
+            "source": "lyrics/allstar.txt"
+        },
+        {
+            "title": "The Final Countdown",
+            "artist": "Europe",
+            "source": "lyrics/countdown.txt"
+        },
+        {
+            "title": "Only Happy When It Rains",
+            "artist": "Garbage",
+            "source": "lyrics/rains.txt"
+        },
+        {
+            "title": "Here Comes the Sun",
+            "artist": "Beatles",
+            "source": "lyrics/herecomes.txt"
+        },
+        {
+            "title": "Dog Days Are Over",
+            "artist": "Florence and the Machine",
+            "source": "lyrics/dogdays.txt"
+        },
+        {
+            "title": "What a Wonderful World",
+            "artist": "Louis Armstrong",
+            "source": "lyrics/wonderful.txt"
+        }
+    ]
+}
