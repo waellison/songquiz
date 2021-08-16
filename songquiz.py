@@ -1,4 +1,4 @@
-from sq_classes import sq_game_difficulty, sq_song_database, sq_song
+from sq_classes import sq_game_difficulty, sq_song_database
 
 score = 0
 max_score = 0
@@ -8,7 +8,7 @@ scores = {
     "title": 5
 }
 
-db = sq_song_database("tests/database.json")
+db = sq_song_database("database.json")
 print("database loaded: " + str(len(db.songs)) + " songs present")
 
 print("\nSelect your difficulty:\n")
@@ -38,6 +38,8 @@ while True:
         title_guess = input("Guess the title! > ")
     except EOFError:
         break
+
+    # TODO: More robust matching (removing common words e.g. a/an/the, punctuation)
     if artist_guess.lower() == song.artist.lower():
         this_question_score += scores["artist"]
         correct["artist"] = True
@@ -49,12 +51,14 @@ while True:
         print("Excellent!  You got that one totally right.")
 
     if correct["artist"] == False:
-        print("Oops!  The correct artist is", song["artist"])
+        print("Oops!  The correct artist is", song.artist)
 
     if correct["title"] == False:
-        print("Darn!  The correct title is \"" + song["title"] + "\"")
+        print("Darn!  The correct title is \"" + song.title + "\"")
 
-    print(str(this_question_score) + " added to your score out of " +
-          str(max_score) + " possible.\n")
+    score += this_question_score
+    print(str(this_question_score) + " points added to your score.  " +
+          str(len(db.songs)) + " songs remain.")
+    print("Current score: " + str(score) + "/" + str(max_score) + "\n")
 
 print("Final score:", str(score) + "/" + str(max_score))
