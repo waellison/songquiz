@@ -1,11 +1,34 @@
+import random
 from sq_classes import sq_game_difficulty, sq_song_database
+from functools import reduce
 
 score = 0
 max_score = 0
+count = 0
+max_count = 0
 
 scores = {
     "artist": 5,
     "title": 5
+}
+
+max_question_score = reduce((lambda x, y: x + y), scores.values())
+
+feedbacks = {
+    "perfect":
+    ["Excellent!",
+     "Awesome!",
+     "Nailed it!",
+     "Ding-ding-ding!",
+     "You got it!"],
+    "title":
+    ["You got the song, but not the artist.",
+     "You knew the song, just not who sang it.",
+     "Nice, you got the title."],
+    "artist":
+    ["You got the artist, but not the title.",
+     "You knew the singer, just not the name of the song.",
+     "Nice, you got the artist."],
 }
 
 db = sq_song_database("database.json")
@@ -14,14 +37,24 @@ print("database loaded: " + str(len(db.songs)) + " songs present")
 print("\nSelect your difficulty:\n")
 diff = sq_game_difficulty()
 print(diff.value.title() + " difficulty chosen")
-print("Maximum score is " + str(max_score) + " points.  Have fun!\n")
+print(
+    f"You earn {scores['artist']} points per correct artist and {scores['title']} points per correct title.  Have fun!\n")
+
+try:
+    max_count = int(input(f"How many? (max {len(db.songs)}) > "))
+except ValueError:
+    max_count = len(db.songs)
 
 while True:
-    this_question_score = 0
-    correct = {
-        "artist": False,
-        "title": False
+    songinfo = {
+        "artist": {"guess": str(), "correct?": False},
+        "title":  {"guess": str(), "correct?": False}
     }
+
+    if(count == max_count):
+        break
+
+    this_question_score = 0
 
     try:
         song = db.pick_song()
@@ -34,31 +67,27 @@ while True:
         max_score += scores[score_val]
 
     try:
-        artist_guess = input("Guess the artist! > ")
-        title_guess = input("Guess the title! > ")
+        for key in songinfo.keys():
+            songinfo[key]["guess"] = input(f"Guess the {key}! > ")
     except EOFError:
         break
 
-    # TODO: More robust matching (removing common words e.g. a/an/the, punctuation)
-    if artist_guess.lower() == song.artist.lower():
-        this_question_score += scores["artist"]
-        correct["artist"] = True
-    if title_guess.lower() == song.title.lower():
-        this_question_score += scores["title"]
-        correct["title"] = True
+    for key in songinfo.keys():
+        if song.loose_match(songinfo[key]["guess"], key) == True:
+            songinfo[key]["correct?"] = True
+            this_question_score += scores[key]
 
-    if correct["artist"] == True and correct["title"] == True:
-        print("Excellent!  You got that one totally right.")
-
-    if correct["artist"] == False:
-        print("Oops!  The correct artist is", song.artist)
-
-    if correct["title"] == False:
-        print("Darn!  The correct title is \"" + song.title + "\"")
+    if this_question_score == max_question_score:
+        print(random.choice(feedbacks["perfect"]))
+    else:
+        for key in songinfo.keys():
+            if songinfo[key]["correct?"] == True:
+                print(random.choice(feedbacks[key]))
+                print(f"The correct {key} is {song.info[key]}")
 
     score += this_question_score
-    print(str(this_question_score) + " points added to your score.  " +
-          str(len(db.songs)) + " songs remain.")
-    print("Current score: " + str(score) + "/" + str(max_score) + "\n")
+    count += 1
+    print(f"{this_question_score} points added to your score.  {max_count - count} songs remain.")
+    print(f"Current score: {str(score)}/{str(max_score)}\n")
 
 print("Final score:", str(score) + "/" + str(max_score))
