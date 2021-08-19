@@ -15,3 +15,5 @@ You can select from four difficulty levels, which affect the number of lines of 
 (No, the Doom-flavored difficulty names are not in the final build.)
 
 Song lyrics are the intellectual property of the people who own them and are used here as sample data.
+
+Requires the `tr` library; run `pip install python-tr` before running `songquiz.py`.
