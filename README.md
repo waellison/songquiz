@@ -3,7 +3,7 @@ Version 0.1 "Knee-Deep in the Sound"
 
 A music quiz program thingee written in Python.
 
-I created this as a side project during my Nucamp course in CS fundamentals with Python.
+I created this as a project during my Nucamp course in CS fundamentals with Python.
 
 You can select from four difficulty levels, which affect the number of lines of lyrics shown:
 
