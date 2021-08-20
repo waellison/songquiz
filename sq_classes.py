@@ -2,6 +2,7 @@ import sys
 import json
 import random
 from tr import tr
+from functools import reduce
 
 
 def make_match_candidate(string):
@@ -56,6 +57,7 @@ class sq_song_database:
 class sq_song:
     info = None
     lines = None
+    avg_line_len = 0
 
     def __init__(self, dbentry):
         """Create a new song object, and read the lyrics from disk.
@@ -68,6 +70,10 @@ class sq_song:
         self.info["artist"] = dbentry["artist"]
         fh = open(dbentry["source"], "r")
         self.lines = fh.read().splitlines()
+        linecount = len(self.lines)
+        self.avg_line_len = int(reduce(
+            (lambda x, y: x + y), map(lambda str: len(str), self.lines)) / linecount)
+        print(self.avg_line_len)
         fh.close()
 
     def pick_lines(self, difficulty):
@@ -80,7 +86,14 @@ class sq_song:
         difficulty -- the sq_difficulty object representing the active difficulty level
         """
         retval = list()
-        subscr = random.randint(0, len(self.lines) - (difficulty.context))
+        subscr = None
+
+        while True:
+            tmp = random.randint(0, len(self.lines) - difficulty.context)
+            if len(self.lines[tmp]) >= self.avg_line_len:
+                subscr = tmp
+                break
+
         for i in range(subscr, subscr + difficulty.context):
             retval.append(self.lines[i])
         return retval
