@@ -129,7 +129,7 @@ class sq_song:
         match_str = _make_match_candidate(thing)
         candidate_str = _make_match_candidate(other)
 
-        return match_str == candidate_str
+        return match_str.lower() == candidate_str.lower()
 
 
 class sq_game_difficulty:
