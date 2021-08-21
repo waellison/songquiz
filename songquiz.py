@@ -83,11 +83,14 @@ while True:
         for key in songinfo.keys():
             if songinfo[key]["correct?"] == True:
                 print(random.choice(feedbacks[key]))
-                print(f"The correct {key} is {song.info[key]}")
+            elif songinfo[key]["correct?"] == False:
+                print(f"The correct {key} is {song.info[key]}.")
 
     score += this_question_score
     count += 1
-    print(f"{this_question_score} points added to your score.  {max_count - count} songs remain.")
+    what = "song" if max_count - count == 1 else "songs"
+    remains = "remains" if max_count - count == 1 else "remain"
+    print(f"{this_question_score} points added to your score.  {max_count - count} {what} {remains}.")
     print(f"Current score: {str(score)}/{str(max_score)}\n")
 
 print("Final score:", str(score) + "/" + str(max_score))
