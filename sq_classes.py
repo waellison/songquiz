@@ -5,7 +5,18 @@ from tr import tr
 from functools import reduce
 
 
-def make_match_candidate(string):
+def _make_match_candidate(string):
+    """Prepare a string for fuzzy matching.
+
+    Removes punctuation, articles, and conjunctions to allow for some
+    measure of leniency in matching user input.
+
+    Argument:
+    string: the string to operate on
+
+    Returns: the match candidate string with punctuation, articles, and
+    conjunctions removed
+    """
     punct = "!$&()-\"\';:,./?"
     articles = ["a", "an", "the", "but", "and", "or"]
     tmp = string
@@ -73,7 +84,6 @@ class sq_song:
         linecount = len(self.lines)
         self.avg_line_len = int(reduce(
             (lambda x, y: x + y), map(lambda str: len(str), self.lines)) / linecount)
-        print(self.avg_line_len)
         fh.close()
 
     def pick_lines(self, difficulty):
@@ -99,13 +109,25 @@ class sq_song:
         return retval
 
     def loose_match(self, other, which):
+        """Test for a loose match between input and what is in memory.
+
+        Removes punctuation, conjunctions, and articles from the song
+        title and user input, and test for equality.
+
+        Arguments:
+        other: the string to compare
+        which: which attribute to compare (valid values are keys in self.info)
+
+        Returns:
+        True if the loose match is equal, False otherwise
+        """
         try:
             thing = self.info[which]
         except KeyError:
             return False
 
-        match_str = make_match_candidate(thing)
-        candidate_str = make_match_candidate(other)
+        match_str = _make_match_candidate(thing)
+        candidate_str = _make_match_candidate(other)
 
         return match_str == candidate_str
 
