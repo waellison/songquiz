@@ -1,4 +1,7 @@
 # songquiz.py
+
+[![CodeFactor](https://www.codefactor.io/repository/github/tnwae/songquiz.py/badge)](https://www.codefactor.io/repository/github/tnwae/songquiz.py)
+
 Version 0.1 "Knee-Deep in the Sound"
 
 A music quiz program thingee written in Python.
