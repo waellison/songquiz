@@ -1,5 +1,6 @@
 # songquiz.py
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/332788ef2737439087bdbd702941ceb6)](https://app.codacy.com/gh/tnwae/songquiz.py?utm_source=github.com&utm_medium=referral&utm_content=tnwae/songquiz.py&utm_campaign=Badge_Grade_Settings)
 [![CodeFactor](https://www.codefactor.io/repository/github/tnwae/songquiz.py/badge)](https://www.codefactor.io/repository/github/tnwae/songquiz.py)
 
 Version 0.1 "Knee-Deep in the Sound"
