@@ -105,8 +105,8 @@ class sq_song:
         fh = open(dbentry["source"], "r")
         self.lines = fh.read().splitlines()
         linecount = len(self.lines)
-        self.avg_line_len = int(reduce(
-            (lambda x, y: x + y), map(lambda str: len(str), self.lines)) / linecount)
+        self.avg_line_len = int(
+            reduce((lambda x, y: x + y), map(len, self.lines)) / linecount)
         fh.close()
 
     def pick_lines(self, difficulty):
@@ -269,7 +269,7 @@ class sq_game:
                 if songinfo[key]["correct?"] is True:
                     print(random.choice(sq_util.feedbacks[key]))
                 elif songinfo[key]["correct?"] is False:
-                    print(f"The correct {key} is {song.info[key]}.")
+                    print("The correct {key} is {song.info[key]}.")
 
         return this_question_score
 
