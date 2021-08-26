@@ -93,7 +93,8 @@ class sq_song:
     avg_line_len = 0
 
     def __init__(self, dbentry):
-        """Create a new song object, and read the lyrics from disk.
+        """
+        Create a new song object, and read the lyrics from disk.
 
         Argument:
         dbentry -- the database entry referring to this song
@@ -109,7 +110,8 @@ class sq_song:
         fh.close()
 
     def pick_lines(self, difficulty):
-        """Pick random lines from the song lyrics.
+        """
+        Pick random lines from the song lyrics.
 
         Takes into account the passed difficulty level and returns the
         chosen lines in a list.
@@ -131,7 +133,8 @@ class sq_song:
         return retval
 
     def loose_match(self, other, which):
-        """Test for a loose match between input and what is in memory.
+        """
+        Test for a loose match between input and what is in memory.
 
         Removes punctuation, conjunctions, and articles from the song
         title and user input, and test for equality.
@@ -255,7 +258,7 @@ class sq_game:
             return None
 
         for key in songinfo.keys():
-            if song.loose_match(songinfo[key]["guess"], key) == True:
+            if song.loose_match(songinfo[key]["guess"], key) is True:
                 songinfo[key]["correct?"] = True
                 this_question_score += self.scores[key]
 
@@ -263,9 +266,39 @@ class sq_game:
             print(random.choice(sq_util.feedbacks["perfect"]))
         else:
             for key in songinfo.keys():
-                if songinfo[key]["correct?"] == True:
+                if songinfo[key]["correct?"] is True:
                     print(random.choice(sq_util.feedbacks[key]))
-                elif songinfo[key]["correct?"] == False:
+                elif songinfo[key]["correct?"] is False:
                     print(f"The correct {key} is {song.info[key]}.")
 
         return this_question_score
+
+
+def test_make_match_candidate():
+    test_strings = [
+        "Earth, Wind, & Fire",
+        "Love And Tenderness",
+        "Here Comes the Sun",
+        "Modern-Day Bonnie & Clyde",
+        "Wham!",
+        "Don't You Want Me, Baby?",
+        "Long Way to the Top (If You Wanna Rock N' Roll)"
+    ]
+
+    correct_strings = [
+        "Earth Wind Fire",
+        "Love Tenderness",
+        "Here Comes Sun",
+        "Modern-Day Bonnie Clyde",
+        "Wham",
+        "Dont You Want Me Baby",
+        "Long Way to Top If You Wanna Rock N Roll"
+    ]
+
+    answer_strings = []
+
+    for string in test_strings:
+        answer_strings.append(sq_util.make_match_candidate(string))
+
+    for correct, result in zip(correct_strings, answer_strings):
+        assert(correct == result)
