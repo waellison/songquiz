@@ -1,6 +1,6 @@
 # songquiz.py
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/332788ef2737439087bdbd702941ceb6)](https://app.codacy.com/gh/tnwae/songquiz.py?utm_source=github.com&utm_medium=referral&utm_content=tnwae/songquiz.py&utm_campaign=Badge_Grade_Settings) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/ff75fc2d276044978fd4f6644696956e)](https://www.codacy.com/gh/tnwae/songquiz.py/dashboard?utm_source=github.com&utm_medium=referral&utm_content=tnwae/songquiz.py&utm_campaign=Badge_Coverage)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/95403440bddf4ab4907a3fbb952b28c2)](https://www.codacy.com/gh/waellison/songquiz/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=waellison/songquiz&amp;utm_campaign=Badge_Grade)
 
 Version 0.1 "Knee-Deep in the Sound"
 
