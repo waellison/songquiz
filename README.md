@@ -1,6 +1,7 @@
 # songquiz.py
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/95403440bddf4ab4907a3fbb952b28c2)](https://www.codacy.com/gh/waellison/songquiz/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=waellison/songquiz&amp;utm_campaign=Badge_Grade)
+[![License](https://img.shields.io/github/license/waellison/songquiz)](#)
 
 Version 0.1 "Knee-Deep in the Sound"
 
